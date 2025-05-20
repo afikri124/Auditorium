@@ -138,3 +138,7 @@ Route::middleware(['auth', 'role:BM'])->group(function () {
     Route::get('/tools/rehearsal/{eventId}', [ToolsController::class, 'showChecklistRehearsal'])->name('tools.checklist.rehearsal');
     Route::post('/tools/rehearsal/{eventId}', [ToolsController::class, 'submitChecklistRehearsal'])->name('tools.submit.rehearsal');
 });
+
+
+//testpdf
+Route::get('/testpdf', [WelcomeController::class, 'testpdf'])->name('testpdf');

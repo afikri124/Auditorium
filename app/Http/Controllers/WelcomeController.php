@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Package;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use Carbon\Carbon;
 
 class WelcomeController extends Controller
 {
@@ -99,5 +101,13 @@ class WelcomeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function testpdf() {
+        $link = "test.com";
+        $qr = "https://s.jgu.ac.id/qrcode?data=".$link;
+        $pdf = PDF::loadview('test', compact('qr'));
+        return $pdf->stream("Attendance # - test.pdf");
+        // return view('test', compact('qr'));
     }
 }
